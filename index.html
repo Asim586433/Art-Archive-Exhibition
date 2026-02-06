@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Art Archive & Exhibition | Home</title>
+    <title>Art Archive & Exhibition</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* Base Styles & Reset */
@@ -49,7 +49,7 @@
             padding: var(--spacing-lg) 0;
         }
 
-        h1, h2, h3, h4 {
+        h1, h2, h3 {
             font-family: 'Helvetica Neue', Arial, sans-serif;
             font-weight: 300;
             letter-spacing: 1px;
@@ -83,11 +83,6 @@
             margin-bottom: var(--spacing-sm);
         }
 
-        h4 {
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-        }
-
         p {
             margin-bottom: var(--spacing-sm);
             color: var(--light-text);
@@ -97,11 +92,6 @@
             max-width: 100%;
             height: auto;
             display: block;
-        }
-
-        a {
-            color: inherit;
-            text-decoration: none;
         }
 
         /* Header & Navigation */
@@ -155,25 +145,10 @@
             font-size: 0.95rem;
             letter-spacing: 1px;
             transition: color 0.3s ease;
-            position: relative;
         }
 
         nav a:hover {
             color: var(--accent-color);
-        }
-
-        nav a.active {
-            color: var(--accent-color);
-        }
-
-        nav a.active:after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 100%;
-            height: 1px;
-            background-color: var(--accent-color);
         }
 
         /* Hero Section */
@@ -197,14 +172,12 @@
             color: white;
             margin-bottom: var(--spacing-sm);
             font-size: 3.5rem;
-            animation: fadeInUp 1s ease-out;
         }
 
         .hero p {
             color: rgba(255, 255, 255, 0.85);
             font-size: 1.2rem;
             margin-bottom: var(--spacing-md);
-            animation: fadeInUp 1s ease-out 0.3s both;
         }
 
         .cta-button {
@@ -218,8 +191,6 @@
             font-size: 0.9rem;
             transition: all 0.3s ease;
             margin-top: var(--spacing-sm);
-            cursor: pointer;
-            animation: fadeInUp 1s ease-out 0.6s both;
         }
 
         .cta-button:hover {
@@ -227,19 +198,33 @@
             color: var(--primary-color);
         }
 
-        .cta-button.secondary {
-            background-color: var(--accent-color);
-            border-color: var(--accent-color);
-            color: white;
+        /* Exhibition Section */
+        .exhibition-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-lg);
+            align-items: center;
         }
 
-        .cta-button.secondary:hover {
-            background-color: #6d350d;
-            border-color: #6d350d;
+        .exhibition-details {
+            padding-right: var(--spacing-md);
         }
 
-        /* About Preview Section */
-        .about-preview {
+        .detail-item {
+            margin-bottom: var(--spacing-md);
+            padding-bottom: var(--spacing-sm);
+            border-bottom: 1px solid #eee;
+        }
+
+        .detail-label {
+            font-weight: bold;
+            color: var(--primary-color);
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        /* About Section */
+        .about-section {
             background-color: var(--secondary-color);
         }
 
@@ -254,104 +239,18 @@
             padding-right: var(--spacing-md);
         }
 
-        /* Exhibition Preview */
-        .exhibition-preview {
-            position: relative;
-            overflow: hidden;
-        }
-
-        .exhibition-card {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: var(--spacing-lg);
-            align-items: center;
-            background: white;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-            border-radius: 5px;
-            overflow: hidden;
-        }
-
-        .exhibition-info {
-            padding: var(--spacing-md);
-        }
-
-        .countdown {
-            display: flex;
-            gap: 15px;
-            margin: var(--spacing-md) 0;
-        }
-
-        .countdown-item {
-            text-align: center;
-            background: var(--secondary-color);
-            padding: 10px;
-            border-radius: 5px;
-            min-width: 70px;
-        }
-
-        .countdown-number {
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: var(--accent-color);
-            display: block;
-        }
-
-        .countdown-label {
-            font-size: 0.8rem;
-            color: var(--light-text);
-        }
-
-        /* Featured Artists */
-        .artists-preview {
-            background-color: var(--secondary-color);
-        }
-
-        .artists-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: var(--spacing-md);
-        }
-
-        .artist-card {
-            background-color: white;
-            padding: var(--spacing-md);
-            border-radius: 5px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            text-align: center;
-        }
-
-        .artist-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .artist-image {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin: 0 auto var(--spacing-sm);
-            border: 3px solid var(--secondary-color);
-        }
-
-        /* Gallery Preview */
-        .gallery-preview {
-            text-align: center;
-        }
-
+        /* Gallery Section */
         .gallery {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 20px;
-            margin: var(--spacing-md) 0;
+            margin-top: var(--spacing-md);
         }
 
         .gallery-item {
             position: relative;
             overflow: hidden;
             cursor: pointer;
-            background-color: #f9f9f9;
-            border-radius: 5px;
         }
 
         .gallery-item img {
@@ -381,108 +280,61 @@
             transform: translateY(0);
         }
 
-        /* Events Preview */
-        .events-preview .container {
+        /* Contact Section */
+        .contact-section {
+            background-color: var(--secondary-color);
+        }
+
+        .contact-container {
             display: grid;
-            grid-template-columns: 2fr 1fr;
+            grid-template-columns: 1fr 1fr;
             gap: var(--spacing-lg);
         }
 
-        .event-item {
-            display: flex;
-            margin-bottom: var(--spacing-md);
-            padding-bottom: var(--spacing-md);
-            border-bottom: 1px solid #eee;
-        }
-
-        .event-date {
-            min-width: 100px;
-            margin-right: var(--spacing-md);
-            text-align: center;
-        }
-
-        .event-day {
-            font-size: 2rem;
-            font-weight: bold;
-            color: var(--accent-color);
-            display: block;
-        }
-
-        .event-month {
-            font-size: 0.9rem;
-            color: var(--light-text);
-            text-transform: uppercase;
-        }
-
-        .newsletter-signup {
-            background-color: var(--secondary-color);
-            padding: var(--spacing-md);
-            border-radius: 5px;
-        }
-
-        /* Modal for Gallery */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
+        .contact-form input,
+        .contact-form textarea {
             width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.9);
-            z-index: 2000;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .modal-content {
-            max-width: 800px;
-            width: 90%;
-            background-color: white;
-            padding: var(--spacing-md);
-            border-radius: 5px;
-            position: relative;
-        }
-
-        .modal-close {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            font-size: 1.5rem;
-            background: none;
-            border: none;
-            cursor: pointer;
-            color: var(--text-color);
-        }
-
-        .modal-image {
-            width: 100%;
-            max-height: 500px;
-            object-fit: contain;
-            margin-bottom: var(--spacing-md);
-        }
-
-        /* Visit Preview */
-        .visit-preview {
-            background-color: var(--secondary-color);
-        }
-
-        .visit-info {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: var(--spacing-md);
-        }
-
-        .info-card {
-            background: white;
-            padding: var(--spacing-md);
-            border-radius: 5px;
-            text-align: center;
-        }
-
-        .info-card i {
-            font-size: 2.5rem;
-            color: var(--accent-color);
+            padding: 12px;
             margin-bottom: var(--spacing-sm);
+            border: 1px solid #ddd;
+            font-family: inherit;
+            font-size: 1rem;
+        }
+
+        .contact-form textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        .submit-button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            cursor: pointer;
+            font-size: 1rem;
+            letter-spacing: 1px;
+            transition: background-color 0.3s ease;
+        }
+
+        .submit-button:hover {
+            background-color: var(--accent-color);
+        }
+
+        .contact-info {
+            padding-left: var(--spacing-md);
+        }
+
+        .contact-detail {
+            margin-bottom: var(--spacing-md);
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .contact-detail i {
+            margin-right: 15px;
+            color: var(--accent-color);
+            margin-top: 5px;
         }
 
         /* Footer */
@@ -530,23 +382,21 @@
                 font-size: 1.8rem;
             }
             
+            .exhibition-info,
             .about-content,
-            .exhibition-card,
-            .events-preview .container {
+            .contact-container {
                 grid-template-columns: 1fr;
             }
             
-            .about-text {
+            .exhibition-details,
+            .about-text,
+            .contact-info {
                 padding-right: 0;
                 padding-bottom: var(--spacing-md);
             }
             
             .hero h1 {
                 font-size: 2.8rem;
-            }
-            
-            .visit-info {
-                grid-template-columns: 1fr;
             }
         }
 
@@ -581,7 +431,7 @@
                 margin: 15px 0;
             }
             
-            .gallery, .artists-grid {
+            .gallery {
                 grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             }
             
@@ -592,21 +442,6 @@
             
             .social-links a:first-child {
                 margin-left: 0;
-            }
-            
-            .event-item {
-                flex-direction: column;
-            }
-            
-            .event-date {
-                margin-right: 0;
-                margin-bottom: 10px;
-                text-align: left;
-            }
-            
-            .countdown {
-                justify-content: center;
-                flex-wrap: wrap;
             }
         }
 
@@ -623,31 +458,12 @@
                 font-size: 2.2rem;
             }
             
-            .gallery, .artists-grid {
+            .gallery {
                 grid-template-columns: 1fr;
             }
-            
-            .countdown-item {
-                min-width: 60px;
-            }
-            
-            .countdown-number {
-                font-size: 1.5rem;
-            }
         }
 
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
+        /* Animation for scroll */
         .fade-in {
             opacity: 0;
             transform: translateY(20px);
@@ -658,341 +474,176 @@
             opacity: 1;
             transform: translateY(0);
         }
-
-        /* Utility Classes */
-        .text-center {
-            text-align: center;
-        }
-        
-        .mb-sm {
-            margin-bottom: var(--spacing-sm);
-        }
-        
-        .mb-md {
-            margin-bottom: var(--spacing-md);
-        }
-        
-        .mb-lg {
-            margin-bottom: var(--spacing-lg);
-        }
     </style>
 </head>
 <body>
     <!-- Header & Navigation -->
     <header id="header">
         <div class="container header-container">
-            <a href="#home" class="logo">ART ARCHIVE</a>
+            <a href="#" class="logo">ART ARCHIVE</a>
             <button class="nav-toggle" id="navToggle">
                 <i class="fas fa-bars"></i>
             </button>
             <nav>
                 <ul id="navMenu">
-                    <li><a href="#home" class="active">Home</a></li>
+                    <li><a href="#home">Home</a></li>
                     <li><a href="#exhibition">Exhibition</a></li>
-                    <li><a href="#artists">Artists</a></li>
-                    <li><a href="#events">Events</a></li>
-                    <li><a href="#visit">Visit</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#gallery">Works</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <!-- Main Content - Home Page -->
-    <main id="main-content">
-        <!-- Hero Section -->
-        <section id="home" class="hero">
-            <div class="hero-content">
-                <h1>Fragments of Memory</h1>
-                <p>A Retrospective Exhibition from the Art Archive Collection</p>
-                <p>October 15 – December 20, 2023 | Gallery Space, 123 Art District</p>
-                <div class="hero-buttons">
-                    <a href="#exhibition-preview" class="cta-button">VIEW EXHIBITION</a>
-                    <a href="#tickets" class="cta-button secondary" style="margin-left: 15px;">BOOK TICKETS</a>
-                </div>
-            </div>
-        </section>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="fade-in">Archive & Exhibition</h1>
+            <p class="fade-in">A curated collection of contemporary artworks exploring memory and materiality</p>
+            <p class="fade-in">October 15 – December 20, 2023 | Gallery Space, 123 Art District</p>
+            <a href="#exhibition" class="cta-button fade-in">VIEW EXHIBITION DETAILS</a>
+        </div>
+    </section>
 
-        <!-- About Preview -->
-        <section id="about-preview" class="about-preview fade-in">
-            <div class="container">
-                <h2 class="text-center">About the Archive</h2>
-                <div class="about-content">
-                    <div class="about-image">
-                        <img src="https://images.unsplash.com/photo-1577083551718-30f510b5abf7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Archive Collection">
+    <!-- Exhibition Section -->
+    <section id="exhibition" class="exhibition-section">
+        <div class="container">
+            <h2>Exhibition Information</h2>
+            <div class="exhibition-info">
+                <div class="exhibition-details fade-in">
+                    <div class="detail-item">
+                        <span class="detail-label">Title</span>
+                        <span>Fragments of Memory: A Retrospective</span>
                     </div>
-                    <div class="about-text">
-                        <h3>Preserving Contemporary Art History</h3>
-                        <p>Founded in 2010, our archive is dedicated to documenting and preserving significant works from emerging and established contemporary artists. Our collection spans multiple mediums, with a focus on works that explore themes of memory, identity, and material culture.</p>
-                        <p>This exhibition showcases a selection from our permanent collection, featuring 35 artists from 15 different countries. The works on display represent a decade of acquisitions and highlight the archive's commitment to supporting artistic innovation.</p>
-                        <a href="#about" class="cta-button secondary">LEARN MORE</a>
+                    <div class="detail-item">
+                        <span class="detail-label">Dates</span>
+                        <span>October 15 – December 20, 2023</span>
                     </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Exhibition Preview -->
-        <section id="exhibition-preview" class="exhibition-preview fade-in">
-            <div class="container">
-                <h2 class="text-center">Current Exhibition</h2>
-                <div class="exhibition-card">
-                    <div class="exhibition-image">
-                        <img src="https://images.unsplash.com/photo-1541961017774-22349e4a1262?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Exhibition Space">
+                    <div class="detail-item">
+                        <span class="detail-label">Location</span>
+                        <span>Gallery Space, 123 Art District, City Center</span>
                     </div>
-                    <div class="exhibition-info">
-                        <h3>Fragments of Memory: A Retrospective</h3>
-                        <p>This exhibition brings together works from the archive's permanent collection that explore the theme of memory through various media. The selected pieces represent a decade of collecting and showcase evolving approaches to documenting personal and collective memories.</p>
-                        
-                        <div class="detail-item mb-md">
-                            <span class="detail-label">Dates</span>
-                            <span>October 15 – December 20, 2023</span>
-                        </div>
-                        
-                        <div class="detail-item mb-md">
-                            <span class="detail-label">Location</span>
-                            <span>Gallery Space, 123 Art District</span>
-                        </div>
-                        
-                        <div class="countdown">
-                            <div class="countdown-item">
-                                <span class="countdown-number" id="days">45</span>
-                                <span class="countdown-label">Days</span>
-                            </div>
-                            <div class="countdown-item">
-                                <span class="countdown-number" id="hours">12</span>
-                                <span class="countdown-label">Hours</span>
-                            </div>
-                            <div class="countdown-item">
-                                <span class="countdown-number" id="minutes">30</span>
-                                <span class="countdown-label">Minutes</span>
-                            </div>
-                        </div>
-                        
-                        <a href="#exhibition" class="cta-button secondary">EXHIBITION DETAILS</a>
+                    <div class="detail-item">
+                        <span class="detail-label">Opening Hours</span>
+                        <span>Tuesday–Sunday: 11am–7pm | Closed Mondays</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Admission</span>
+                        <span>Free entry | Booking recommended for weekends</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Curated by</span>
+                        <span>Alexandra Chen & Marcus Thorne</span>
                     </div>
                 </div>
-            </div>
-        </section>
-
-        <!-- Featured Artists -->
-        <section id="artists-preview" class="artists-preview fade-in">
-            <div class="container">
-                <h2 class="text-center">Featured Artists</h2>
-                <p class="text-center mb-lg">Discover the talented artists featured in our current exhibition</p>
-                
-                <div class="artists-grid">
-                    <!-- Artist 1 -->
-                    <div class="artist-card fade-in" data-artist="maria-rodriguez">
-                        <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Maria Rodriguez" class="artist-image">
-                        <h4>Maria Rodriguez</h4>
-                        <p>Mixed media, photography</p>
-                        <p class="mb-sm">Mexico City, Mexico</p>
-                        <button class="cta-button" style="padding: 8px 20px; font-size: 0.9rem;">View Works</button>
-                    </div>
-                    
-                    <!-- Artist 2 -->
-                    <div class="artist-card fade-in" data-artist="kenji-tanaka">
-                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Kenji Tanaka" class="artist-image">
-                        <h4>Kenji Tanaka</h4>
-                        <p>Ceramics, installation</p>
-                        <p class="mb-sm">Kyoto, Japan</p>
-                        <button class="cta-button" style="padding: 8px 20px; font-size: 0.9rem;">View Works</button>
-                    </div>
-                    
-                    <!-- Artist 3 -->
-                    <div class="artist-card fade-in" data-artist="sophie-dupont">
-                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Sophie Dupont" class="artist-image">
-                        <h4>Sophie Dupont</h4>
-                        <p>Painting, drawing</p>
-                        <p class="mb-sm">Paris, France</p>
-                        <button class="cta-button" style="padding: 8px 20px; font-size: 0.9rem;">View Works</button>
-                    </div>
-                    
-                    <!-- Artist 4 -->
-                    <div class="artist-card fade-in" data-artist="david-owens">
-                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="David Owens" class="artist-image">
-                        <h4>David Owens</h4>
-                        <p>Digital media, video</p>
-                        <p class="mb-sm">New York, USA</p>
-                        <button class="cta-button" style="padding: 8px 20px; font-size: 0.9rem;">View Works</button>
-                    </div>
-                </div>
-                
-                <div class="text-center mt-lg">
-                    <a href="#artists" class="cta-button secondary">VIEW ALL ARTISTS</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Gallery Preview -->
-        <section id="gallery-preview" class="gallery-preview fade-in">
-            <div class="container">
-                <h2 class="text-center">Featured Works</h2>
-                <p class="text-center mb-lg">A selection of artworks from the current exhibition</p>
-                
-                <div class="gallery">
-                    <!-- Artwork 1 -->
-                    <div class="gallery-item fade-in" data-id="1">
-                        <img src="https://images.unsplash.com/photo-1543857778-c4a1a569e388?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Untitled #14">
-                        <div class="gallery-overlay">
-                            <h4>Untitled #14</h4>
-                            <p>Maria Rodriguez | Mixed media</p>
-                        </div>
-                    </div>
-                    
-                    <!-- Artwork 2 -->
-                    <div class="gallery-item fade-in" data-id="2">
-                        <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Memory Fragment">
-                        <div class="gallery-overlay">
-                            <h4>Memory Fragment</h4>
-                            <p>Kenji Tanaka | Archival prints</p>
-                        </div>
-                    </div>
-                    
-                    <!-- Artwork 3 -->
-                    <div class="gallery-item fade-in" data-id="3">
-                        <img src="https://images.unsplash.com/photo-1541961017774-22349e4a1262?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Urban Traces">
-                        <div class="gallery-overlay">
-                            <h4>Urban Traces</h4>
-                            <p>Sophie Dupont | Photography</p>
-                        </div>
-                    </div>
-                    
-                    <!-- Artwork 4 -->
-                    <div class="gallery-item fade-in" data-id="4">
-                        <img src="https://images.unsplash.com/photo-1541961017774-22349e4a1262?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Material Study V">
-                        <div class="gallery-overlay">
-                            <h4>Material Study V</h4>
-                            <p>David Owens | Clay and pigment</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="text-center mt-lg">
-                    <a href="#gallery" class="cta-button secondary">VIEW FULL GALLERY</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Events Preview -->
-        <section id="events-preview" class="events-preview fade-in">
-            <div class="container">
-                <h2 class="text-center">Upcoming Events</h2>
-                <p class="text-center mb-lg">Join us for talks, workshops, and special programs</p>
-                
-                <div class="events-container">
-                    <div class="events-list">
-                        <!-- Event 1 -->
-                        <div class="event-item fade-in">
-                            <div class="event-date">
-                                <span class="event-day">05</span>
-                                <span class="event-month">Nov</span>
-                            </div>
-                            <div class="event-details">
-                                <h4>Curator's Tour</h4>
-                                <p>Join exhibition curator Alexandra Chen for a guided tour of "Fragments of Memory."</p>
-                                <p><strong>Time:</strong> 2:00 PM | <strong>Location:</strong> Main Gallery</p>
-                                <button class="cta-button" style="padding: 8px 20px; font-size: 0.9rem; margin-top: 10px;">Register Now</button>
-                            </div>
-                        </div>
-                        
-                        <!-- Event 2 -->
-                        <div class="event-item fade-in">
-                            <div class="event-date">
-                                <span class="event-day">12</span>
-                                <span class="event-month">Nov</span>
-                            </div>
-                            <div class="event-details">
-                                <h4>Artist Talk: Maria Rodriguez</h4>
-                                <p>Featured artist discusses her work exploring family archives and memory.</p>
-                                <p><strong>Time:</strong> 6:30 PM | <strong>Location:</strong> Auditorium</p>
-                                <button class="cta-button" style="padding: 8px 20px; font-size: 0.9rem; margin-top: 10px;">Register Now</button>
-                            </div>
-                        </div>
-                        
-                        <!-- Event 3 -->
-                        <div class="event-item fade-in">
-                            <div class="event-date">
-                                <span class="event-day">19</span>
-                                <span class="event-month">Nov</span>
-                            </div>
-                            <div class="event-details">
-                                <h4>Family Workshop: Memory Collage</h4>
-                                <p>Hands-on workshop for families to create personal memory collages.</p>
-                                <p><strong>Time:</strong> 11:00 AM | <strong>Location:</strong> Education Room</p>
-                                <button class="cta-button" style="padding: 8px 20px; font-size: 0.9rem; margin-top: 10px;">Register Now</button>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="newsletter-signup fade-in">
-                        <h3>Stay Updated</h3>
-                        <p>Subscribe to our newsletter for event announcements and exhibition updates.</p>
-                        <div class="newsletter-form">
-                            <input type="email" placeholder="Your email address" style="width: 100%; padding: 12px; margin: 15px 0; border: 1px solid #ddd;">
-                            <button class="cta-button secondary" style="width: 100%;">Subscribe</button>
-                        </div>
-                        <p style="font-size: 0.9rem; margin-top: 15px;">We respect your privacy. Unsubscribe at any time.</p>
-                    </div>
-                </div>
-                
-                <div class="text-center mt-lg">
-                    <a href="#events" class="cta-button secondary">VIEW ALL EVENTS</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Visit Preview -->
-        <section id="visit-preview" class="visit-preview fade-in">
-            <div class="container">
-                <h2 class="text-center">Plan Your Visit</h2>
-                <p class="text-center mb-lg">Everything you need to know before visiting the exhibition</p>
-                
-                <div class="visit-info">
-                    <div class="info-card fade-in">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <h4>Location</h4>
-                        <p>Gallery Space, 123 Art District<br>City Center, CC 10001</p>
-                    </div>
-                    
-                    <div class="info-card fade-in">
-                        <i class="fas fa-clock"></i>
-                        <h4>Opening Hours</h4>
-                        <p>Tuesday–Sunday: 11am–7pm<br>Closed Mondays</p>
-                    </div>
-                    
-                    <div class="info-card fade-in">
-                        <i class="fas fa-ticket-alt"></i>
-                        <h4>Admission</h4>
-                        <p>Free entry for all visitors<br>Booking recommended for weekends</p>
-                    </div>
-                    
-                    <div class="info-card fade-in">
-                        <i class="fas fa-wheelchair"></i>
-                        <h4>Accessibility</h4>
-                        <p>Fully wheelchair accessible<br>Audio guides available</p>
-                    </div>
-                </div>
-                
-                <div class="text-center mt-lg">
-                    <a href="#visit" class="cta-button secondary">VISITOR INFORMATION</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Gallery Modal -->
-        <div id="galleryModal" class="modal">
-            <div class="modal-content">
-                <button class="modal-close" id="modalClose">&times;</button>
-                <img id="modalImage" class="modal-image" src="" alt="">
-                <div id="modalInfo">
-                    <h3 id="modalTitle"></h3>
-                    <p id="modalArtist"></p>
-                    <p id="modalDescription"></p>
+                <div class="exhibition-image fade-in">
+                    <img src="https://images.unsplash.com/photo-1541961017774-22349e4a1262?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Exhibition Space">
                 </div>
             </div>
         </div>
-    </main>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2>About the Archive</h2>
+            <div class="about-content">
+                <div class="about-image fade-in">
+                    <img src="https://images.unsplash.com/photo-1577083551718-30f510b5abf7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Archive Collection">
+                </div>
+                <div class="about-text fade-in">
+                    <h3>Preserving Contemporary Art History</h3>
+                    <p>Founded in 2010, our archive is dedicated to documenting and preserving significant works from emerging and established contemporary artists. Our collection spans multiple mediums, with a focus on works that explore themes of memory, identity, and material culture.</p>
+                    <p>This exhibition showcases a selection from our permanent collection, featuring 35 artists from 15 different countries. The works on display represent a decade of acquisitions and highlight the archive's commitment to supporting artistic innovation.</p>
+                    <p>Our mission extends beyond preservation to education and accessibility. Through exhibitions, publications, and digital initiatives, we aim to make contemporary art history available to researchers, students, and the general public.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery-section">
+        <div class="container">
+            <h2>Featured Works</h2>
+            <div class="gallery">
+                <div class="gallery-item fade-in">
+                    <img src="https://images.unsplash.com/photo-1543857778-c4a1a569e388?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Artwork 1">
+                    <div class="gallery-overlay">
+                        <h3>Untitled #14</h3>
+                        <p>Mixed media on canvas, 2021</p>
+                    </div>
+                </div>
+                <div class="gallery-item fade-in">
+                    <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Artwork 2">
+                    <div class="gallery-overlay">
+                        <h3>Memory Fragment</h3>
+                        <p>Archival prints, 2022</p>
+                    </div>
+                </div>
+                <div class="gallery-item fade-in">
+                    <img src="https://images.unsplash.com/photo-1541961017774-22349e4a1262?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Artwork 3">
+                    <div class="gallery-overlay">
+                        <h3>Urban Traces</h3>
+                        <p>Photography series, 2020</p>
+                    </div>
+                </div>
+                <div class="gallery-item fade-in">
+                    <img src="https://images.unsplash.com/photo-1541961017774-22349e4a1262?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Artwork 4">
+                    <div class="gallery-overlay">
+                        <h3>Material Study V</h3>
+                        <p>Clay and pigment, 2023</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2>Contact & Enquiries</h2>
+            <div class="contact-container">
+                <div class="contact-form fade-in">
+                    <form id="contactForm">
+                        <input type="text" placeholder="Your Name" required>
+                        <input type="email" placeholder="Your Email" required>
+                        <input type="text" placeholder="Subject" required>
+                        <textarea placeholder="Your Message" required></textarea>
+                        <button type="submit" class="submit-button">SEND MESSAGE</button>
+                    </form>
+                </div>
+                <div class="contact-info fade-in">
+                    <h3>Get in Touch</h3>
+                    <p>For inquiries about the archive, exhibition, or loan requests, please contact us using the form or details below.</p>
+                    
+                    <div class="contact-detail">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Visit Us</h4>
+                            <p>Gallery Space, 123 Art District<br>City Center, CC 10001</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-detail">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>info@artarchive.org<br>exhibitions@artarchive.org</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-detail">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>+1 (555) 123-4567<br>Tuesday–Friday, 10am–5pm</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Footer -->
     <footer>
@@ -1000,345 +651,86 @@
             <div class="footer-content">
                 <div class="copyright">
                     <p>&copy; 2023 Art Archive & Exhibition. All rights reserved.</p>
-                    <p style="margin-top: 5px;">Gallery Space, 123 Art District, City Center</p>
                 </div>
                 <div class="social-links">
                     <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                     <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
                     <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    <a href="#" aria-label="Newsletter"><i class="fas fa-envelope"></i></a>
                 </div>
             </div>
         </div>
     </footer>
 
     <script>
-        // DOM Elements
+        // Mobile Navigation Toggle
         const navToggle = document.getElementById('navToggle');
         const navMenu = document.getElementById('navMenu');
-        const header = document.getElementById('header');
-        const modal = document.getElementById('galleryModal');
-        const modalClose = document.getElementById('modalClose');
-        const modalImage = document.getElementById('modalImage');
-        const modalTitle = document.getElementById('modalTitle');
-        const modalArtist = document.getElementById('modalArtist');
-        const modalDescription = document.getElementById('modalDescription');
         
-        // Gallery data
-        const galleryItems = [
-            {
-                id: 1,
-                title: "Untitled #14",
-                artist: "Maria Rodriguez",
-                description: "Mixed media on canvas, 2021. This work incorporates family photographs and personal letters exploring themes of memory and migration. The layers of paint and collage create a textured surface that invites close inspection.",
-                image: "https://images.unsplash.com/photo-1543857778-c4a1a569e388?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-            },
-            {
-                id: 2,
-                title: "Memory Fragment",
-                artist: "Kenji Tanaka",
-                description: "Archival prints on washi paper, 2022. A series exploring the fragility of memory through layered imagery and delicate materials. Each print represents a different aspect of preserved memory, from personal to collective.",
-                image: "https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-            },
-            {
-                id: 3,
-                title: "Urban Traces",
-                artist: "Sophie Dupont",
-                description: "Photography series, 2020. Documenting disappearing urban landscapes and the memories embedded in architectural spaces. The series captures transitional moments in city development.",
-                image: "https://images.unsplash.com/photo-1541961017774-22349e4a1262?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-            },
-            {
-                id: 4,
-                title: "Material Study V",
-                artist: "David Owens",
-                description: "Clay and pigment, 2023. Exploring material memory through traditional ceramic techniques combined with digital glazing processes. The work questions how materials themselves can hold and convey memory.",
-                image: "https://images.unsplash.com/photo-1541961017774-22349e4a1262?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+        navToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            navToggle.innerHTML = navMenu.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                navToggle.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+        
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.style.padding = '0';
+                header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.padding = '';
+                header.style.boxShadow = '';
             }
-        ];
+        });
         
-        // Artists data
-        const artists = [
-            { 
-                name: "Maria Rodriguez", 
-                country: "Mexico", 
-                medium: "Mixed media, photography",
-                bio: "Maria Rodriguez explores themes of memory, migration, and identity through mixed media works that incorporate personal archives and found materials."
-            },
-            { 
-                name: "Kenji Tanaka", 
-                country: "Japan", 
-                medium: "Ceramics, installation",
-                bio: "Kenji Tanaka's work focuses on the intersection of traditional craft and contemporary concepts of memory and preservation."
-            },
-            { 
-                name: "Sophie Dupont", 
-                country: "France", 
-                medium: "Painting, drawing",
-                bio: "Sophie Dupont's practice examines urban transformation and the layers of history embedded in city landscapes."
-            },
-            { 
-                name: "David Owens", 
-                country: "USA", 
-                medium: "Digital media, video",
-                bio: "David Owens works at the intersection of analog and digital media, exploring how technology shapes our experience of memory."
-            }
-        ];
+        // Form submission
+        const contactForm = document.getElementById('contactForm');
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Thank you for your message. We will respond within 48 hours.');
+            contactForm.reset();
+        });
         
-        // Initialize the website
-        function init() {
-            setupNavigation();
-            setupGallery();
-            setupEventListeners();
-            setupCountdown();
-            setupFadeAnimations();
-        }
+        // Fade-in animation on scroll
+        const fadeElements = document.querySelectorAll('.fade-in');
         
-        // Set up navigation
-        function setupNavigation() {
-            // Mobile navigation toggle
-            navToggle.addEventListener('click', () => {
-                navMenu.classList.toggle('active');
-                navToggle.innerHTML = navMenu.classList.contains('active') 
-                    ? '<i class="fas fa-times"></i>' 
-                    : '<i class="fas fa-bars"></i>';
-            });
-            
-            // Smooth scroll for anchor links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    
-                    const targetId = this.getAttribute('href');
-                    if (targetId === '#') return;
-                    
-                    const targetElement = document.querySelector(targetId);
-                    if (targetElement) {
-                        // Update active nav link
-                        document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
-                        this.classList.add('active');
-                        
-                        // Scroll to target
-                        window.scrollTo({
-                            top: targetElement.offsetTop - 70,
-                            behavior: 'smooth'
-                        });
-                        
-                        // Close mobile menu if open
-                        if (navMenu.classList.contains('active')) {
-                            navMenu.classList.remove('active');
-                            navToggle.innerHTML = '<i class="fas fa-bars"></i>';
-                        }
-                    }
-                });
-            });
-            
-            // Header scroll effect
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 100) {
-                    header.style.padding = '0';
-                    header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.1)';
-                } else {
-                    header.style.padding = '';
-                    header.style.boxShadow = '';
-                }
+        const fadeInOnScroll = () => {
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
                 
-                // Update active nav based on scroll position
-                updateActiveNav();
-            });
-        }
-        
-        // Update active navigation based on scroll position
-        function updateActiveNav() {
-            const sections = document.querySelectorAll('section[id]');
-            const scrollPos = window.scrollY + 100;
-            
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                const sectionId = section.getAttribute('id');
-                
-                if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
-                    document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
-                    const correspondingNav = document.querySelector(`nav a[href="#${sectionId}"]`);
-                    if (correspondingNav) {
-                        correspondingNav.classList.add('active');
-                    }
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('visible');
                 }
             });
-        }
+        };
         
-        // Set up gallery functionality
-        function setupGallery() {
-            // Gallery item click handlers
-            document.querySelectorAll('.gallery-item').forEach(item => {
-                item.addEventListener('click', () => {
-                    const itemId = item.getAttribute('data-id');
-                    const artwork = galleryItems.find(art => art.id == itemId) || galleryItems[0];
-                    
-                    // Update modal content
-                    modalImage.src = artwork.image;
-                    modalImage.alt = artwork.title;
-                    modalTitle.textContent = artwork.title;
-                    modalArtist.textContent = `By ${artwork.artist}`;
-                    modalDescription.textContent = artwork.description;
-                    
-                    // Show modal
-                    modal.style.display = 'flex';
-                    document.body.style.overflow = 'hidden';
-                });
-            });
-            
-            // Artist card click handlers
-            document.querySelectorAll('.artist-card button').forEach(button => {
-                button.addEventListener('click', (e) => {
-                    e.stopPropagation();
-                    const artistCard = button.closest('.artist-card');
-                    const artistName = artistCard.querySelector('h4').textContent;
-                    const artist = artists.find(a => a.name === artistName) || artists[0];
-                    
-                    // Update modal for artist
-                    modalImage.src = artistCard.querySelector('img').src;
-                    modalImage.alt = artist.name;
-                    modalTitle.textContent = artist.name;
-                    modalArtist.textContent = artist.medium;
-                    modalDescription.textContent = `${artist.bio} Based in ${artist.country}, their work is featured in the current exhibition.`;
-                    
-                    // Show modal
-                    modal.style.display = 'flex';
-                    document.body.style.overflow = 'hidden';
-                });
-            });
-            
-            // Artist card click (entire card)
-            document.querySelectorAll('.artist-card').forEach(card => {
-                card.addEventListener('click', (e) => {
-                    if (!e.target.closest('button')) {
-                        const artistName = card.querySelector('h4').textContent;
-                        const artist = artists.find(a => a.name === artistName) || artists[0];
-                        
-                        // Update modal for artist
-                        modalImage.src = card.querySelector('img').src;
-                        modalImage.alt = artist.name;
-                        modalTitle.textContent = artist.name;
-                        modalArtist.textContent = artist.medium;
-                        modalDescription.textContent = `${artist.bio} Based in ${artist.country}, their work is featured in the current exhibition.`;
-                        
-                        // Show modal
-                        modal.style.display = 'flex';
-                        document.body.style.overflow = 'hidden';
-                    }
-                });
-            });
-            
-            // Modal close handler
-            modalClose.addEventListener('click', () => {
-                modal.style.display = 'none';
-                document.body.style.overflow = 'auto';
-            });
-            
-            // Close modal when clicking outside
-            modal.addEventListener('click', (e) => {
-                if (e.target === modal) {
-                    modal.style.display = 'none';
-                    document.body.style.overflow = 'auto';
-                }
-            });
-        }
+        // Check on load and scroll
+        window.addEventListener('load', fadeInOnScroll);
+        window.addEventListener('scroll', fadeInOnScroll);
         
-        // Set up event listeners
-        function setupEventListeners() {
-            // Event registration buttons
-            document.querySelectorAll('.event-item button').forEach(button => {
-                button.addEventListener('click', () => {
-                    const eventTitle = button.closest('.event-item').querySelector('h4').textContent;
-                    alert(`Thank you for your interest in "${eventTitle}". You have been registered for this event. A confirmation email will be sent shortly.`);
-                });
+        // Gallery image click handler
+        document.querySelectorAll('.gallery-item').forEach(item => {
+            item.addEventListener('click', () => {
+                const title = item.querySelector('h3').textContent;
+                const medium = item.querySelector('p').textContent;
+                alert(`Selected: ${title}\n${medium}`);
             });
-            
-            // Newsletter subscription
-            const newsletterButton = document.querySelector('.newsletter-signup button');
-            if (newsletterButton) {
-                newsletterButton.addEventListener('click', () => {
-                    const emailInput = newsletterButton.previousElementSibling;
-                    if (emailInput.value && emailInput.value.includes('@')) {
-                        alert('Thank you for subscribing to our newsletter! You will receive updates about upcoming events and exhibitions.');
-                        emailInput.value = '';
-                    } else {
-                        alert('Please enter a valid email address.');
-                    }
-                });
-            }
-            
-            // Book tickets button
-            const ticketButton = document.querySelector('a[href="#tickets"]');
-            if (ticketButton) {
-                ticketButton.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    alert('Ticket booking system would open here. For now, please visit during opening hours for free entry.');
-                });
-            }
-        }
+        });
         
-        // Set up exhibition countdown
-        function setupCountdown() {
-            // Set exhibition end date (December 20, 2023)
-            const exhibitionEndDate = new Date('December 20, 2023 23:59:59').getTime();
-            
-            function updateCountdown() {
-                const now = new Date().getTime();
-                const timeRemaining = exhibitionEndDate - now;
-                
-                // Calculate days, hours, minutes
-                const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
-                
-                // Update display
-                document.getElementById('days').textContent = days;
-                document.getElementById('hours').textContent = hours;
-                document.getElementById('minutes').textContent = minutes;
-                
-                // If countdown is over
-                if (timeRemaining < 0) {
-                    document.querySelector('.countdown').innerHTML = '<p style="color: var(--accent-color); font-weight: bold;">Exhibition has ended</p>';
-                }
-            }
-            
-            // Update countdown immediately and every minute
-            updateCountdown();
-            setInterval(updateCountdown, 60000);
-        }
-        
-        // Set up fade animations
-        function setupFadeAnimations() {
-            const fadeElements = document.querySelectorAll('.fade-in:not(.visible)');
-            
-            const fadeInOnScroll = () => {
-                fadeElements.forEach(element => {
-                    const elementTop = element.getBoundingClientRect().top;
-                    const elementVisible = 150;
-                    
-                    if (elementTop < window.innerHeight - elementVisible) {
-                        element.classList.add('visible');
-                    }
-                });
-            };
-            
-            // Check immediately and on scroll
-            fadeInOnScroll();
-            window.addEventListener('scroll', fadeInOnScroll);
-            
-            // Initial animation for hero elements
-            setTimeout(() => {
-                const heroElements = document.querySelectorAll('.hero h1, .hero p, .hero-buttons');
-                heroElements.forEach((el, index) => {
-                    el.style.animationDelay = `${index * 0.3}s`;
-                });
-            }, 100);
-        }
-        
-        // Initialize the website when DOM is loaded
-        document.addEventListener('DOMContentLoaded', init);
+        // Initial check for fade-in elements
+        fadeInOnScroll();
     </script>
 </body>
 </html>
